@@ -1,0 +1,7 @@
+﻿	Giới thiệu về Minimal Apis
+- Minimal APIs là một cách tiếp cận đơn giản hơn để xây dựng API trong ASP.NET Core. 
+Chúng cho phép bạn nhanh chóng thiết lập các điểm cuối HTTP với ít cấu hình và mã hơn. 
+Minimal APIs được giới thiệu để tạo ra các ứng dụng API nhỏ, nhẹ nhàng và hiệu quả.
+
+* Trong phần demo này chúng ta sẽ tìm hiểu cách khởi tạo basic 1 mininal apis và cấu hình CORS, wagger, DB (basic)
+	- Cài đặt và basic config hướng dẫn: https://learn.microsoft.com/en-us/training/modules/build-web-api-minimal-api/
