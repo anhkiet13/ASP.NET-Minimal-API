@@ -1,0 +1,33 @@
+﻿# Các thư mục tạm thời và biên dịch
+bin/
+obj/
+
+# Tệp nhật ký
+*.log
+
+# Các tệp người dùng và cài đặt tạm thời
+*.vs/
+*.user
+*.suo
+
+# Cấu hình dự án tạm thời
+*.config
+
+# Các tệp thư viện và tệp DLL
+*.dll
+*.exe
+*.pdb
+*.cache
+*.ilk
+*.vspscc
+*.vssscc
+
+# Tệp lock và tệp dự án
+*.lock.json
+*.chiper.xproj
+
+# Các tệp backup và tệp phụ trợ khác
+*.suo
+*.userosscache
+*.sln.docstates
+__pycache__/
