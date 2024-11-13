@@ -8,7 +8,7 @@ public record Pizza
     public string? Name { get; set; }
 }
 
-public class PizzaDB
+public class PizzaDB2
 {
     private static List<Pizza> _pizzas = new List<Pizza>()
    {

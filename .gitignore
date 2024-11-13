@@ -1,33 +1,46 @@
-﻿# Các thư mục tạm thời và biên dịch
+﻿# Ignore build directories
 bin/
 obj/
 
-# Tệp nhật ký
-*.log
-
-# Các tệp người dùng và cài đặt tạm thời
-*.vs/
+# Ignore user-specific files
 *.user
-*.suo
-
-# Cấu hình dự án tạm thời
-*.config
-
-# Các tệp thư viện và tệp DLL
-*.dll
-*.exe
-*.pdb
-*.cache
-*.ilk
-*.vspscc
-*.vssscc
-
-# Tệp lock và tệp dự án
-*.lock.json
-*.chiper.xproj
-
-# Các tệp backup và tệp phụ trợ khác
+*.rsuser
 *.suo
 *.userosscache
 *.sln.docstates
-__pycache__/
+
+# Ignore build results
+*.exe
+*.dll
+*.pdb
+*.cache
+*.ilk
+*.log
+*.vspscc
+*.vssscc
+*.class
+*.jar
+*.war
+*.ear
+*.dbmdl
+*.jfm
+
+# Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Ignore Visual Studio Code workspace settings
+.vscode/
+
+# Ignore Rider project files
+.idea/
+
+# Ignore JetBrains Rider files
+.idea/
+*.sln.iml
+
+# Ignore other files
+*.DS_Store
+*.sln.docstates
