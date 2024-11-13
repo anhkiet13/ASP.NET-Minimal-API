@@ -1,0 +1,6 @@
+﻿~ Một số lưu ý khi thực hiện cài đặt, cấu hình file .gitignore
+	1. Vị trí .gitignore và git file phải đặt chung với nhau
+	2. Clear cache git để đảm bảo các file có mặt trước khi có file .gitignore sẽ được ghi nhận
+		+ git rm -r --cached . 
+		+ git add .
+		+ git commit -m "Update .gitignore"
