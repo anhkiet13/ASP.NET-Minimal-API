@@ -6,5 +6,8 @@ Minimal APIs được giới thiệu để tạo ra các ứng dụng API nhỏ,
 * Trong phần demo 1 này chúng ta sẽ tìm hiểu cách khởi tạo basic 1 mininal apis và cấu hình CORS, wagger, DB (basic)
 	- Cài đặt và basic config hướng dẫn: https://learn.microsoft.com/en-us/training/modules/build-web-api-minimal-api/
 
-* Trong phần demo 2 chúng ta sẽ tìm hiểu cách cài đặt và áp dụng Entity Framework vào project, chạy demo và tìm hiểu cách EF vận hành.
+* Trong phần demo 2 chúng ta sẽ tìm hiểu cách cài đặt và áp dụng Entity Framework vào project, chạy demo và tìm hiểu cách EF vận hành và cách tích hợp SQLite.
 	- Cài đặt và demo hướng dẫn EF: https://learn.microsoft.com/en-us/training/modules/build-web-api-minimal-database/3-exercise-add-entity-framework-core
+
+* Trong phần demo 3 chúng ta tìm hiểu cách cấu hình CORS như thế nào và sử dụng chính project này là BE cho phần FE demo
+	- Tập trung vào phần CORS của project.

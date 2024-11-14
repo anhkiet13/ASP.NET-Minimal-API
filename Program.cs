@@ -10,8 +10,24 @@ var builder = WebApplication.CreateBuilder(args);
 // Thực hiện kết nối database 
 var connectionString = builder.Configuration.GetConnectionString("Pizzas") ?? "Data Source=Pizzas.db";
 
-// Thêm cấu hình dịch vụ CORS 
-builder.Services.AddCors(options => {});
+// Thêm cấu hình dịch vụ CORS | phần trên là cũ chưa được cấu hình CORS  
+// builder.Services.AddCors(options => {});
+// Phần cấu hình CORS mới
+// 1) define a unique string
+string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+// 2) define allowed domains, in this case "http://example.com" and "*" = all
+//    domains, for testing purposes only.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+      builder =>
+      {
+          // Trong phần cho phép mở CORS chúng ta cho phép http://example.com và tất cả (*) nhưng (*) khá nguy hiểm và chỉ dùng cho demo
+          builder.WithOrigins(
+            "http://example.com", "*");
+      });
+});
 
 // Sử dụng và cấu hình dịch vụ swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -30,7 +46,8 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
 
-app.UseCors("some unique string");
+// Sử dụng CORS dựa trên string CORS đã khai báo
+app.UseCors(MyAllowSpecificOrigins);
 
 // Thực hiện tạo các route cho CRUD Mininal APIs theo hướng căn bản models
 //app.MapGet("/pizzas/{id}", (int id) => PizzaDB.GetPizza(id));
@@ -45,10 +62,10 @@ app.UseCors("some unique string");
 app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync());
 
 // GET item by id
-app.MapGet("/pizza/{id}", async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id));
+app.MapGet("/pizzas/{id}", async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id));
 
 // POST Create item
-app.MapPost("/pizza", async (PizzaDb db, Pizza pizza) =>
+app.MapPost("/pizzas", async (PizzaDb db, Pizza pizza) =>
 {
     await db.Pizzas.AddAsync(pizza);
     await db.SaveChangesAsync();
@@ -56,7 +73,7 @@ app.MapPost("/pizza", async (PizzaDb db, Pizza pizza) =>
 });
 
 // PUT Update item by id
-app.MapPut("/pizza/{id}", async (PizzaDb db, Pizza updatepizza, int id) =>
+app.MapPut("/pizzas/{id}", async (PizzaDb db, Pizza updatepizza, int id) =>
 {
       var pizza = await db.Pizzas.FindAsync(id);
       if (pizza is null) return Results.NotFound();
@@ -67,7 +84,7 @@ app.MapPut("/pizza/{id}", async (PizzaDb db, Pizza updatepizza, int id) =>
 });
 
 // DELETE Delete item by id
-app.MapDelete("/pizza/{id}", async (PizzaDb db, int id) =>
+app.MapDelete("/pizzas/{id}", async (PizzaDb db, int id) =>
 {
    var pizza = await db.Pizzas.FindAsync(id);
    if (pizza is null)
